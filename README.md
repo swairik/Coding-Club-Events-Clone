@@ -20,8 +20,6 @@
 
 Deployed Link : https://coding-ninjas-events-clone.netlify.app
 
-# CodingNinjasClone
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
 ## Development server
