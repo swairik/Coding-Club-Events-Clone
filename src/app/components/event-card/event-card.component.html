@@ -11,31 +11,34 @@
         class="registration-status"
         *ngIf="eventDetails.event_sub_category === eventSubCategory.UPCOMING"
       >
-        <p>
-          <!-- TODO: add circle with ripple effect if registration open  -->
+        <p
+          *ngIf="
+            eventDetails.registration_status ===
+            registrationStatus.REGISTRATIONS_OPEN
+          "
+        >
+          <span class="circle-ripple mr-5">
+            <svg height="10" width="10" class="blinking">
+              <circle cx="5" cy="5" r="5" fill="#ff274b" />
+            </svg>
+          </span>
           Registrations
+          <strong> open </strong>
+          till
           <strong>
             {{
-              eventDetails.registration_status ===
-              registrationStatus.REGISTRATIONS_OPEN
-                ? "open"
-                : "closed"
+              getDate(eventDetails.registration_end_time)
+                | date : "dd MMM, hh:mm aa"
             }}
           </strong>
-          <span
-            *ngIf="
-              eventDetails.registration_status ===
-              registrationStatus.REGISTRATIONS_OPEN
-            "
-          >
-            till
-            <strong>
-              {{
-                getDate(eventDetails.registration_end_time)
-                  | date : "dd MMM, hh:mm aa"
-              }}
-            </strong>
-          </span>
+        </p>
+        <p
+          *ngIf="
+            eventDetails.registration_status ===
+            registrationStatus.REGISTRATIONS_CLOSED
+          "
+        >
+          Registrations <strong>closed</strong>
         </p>
       </div>
     </div>
@@ -64,6 +67,12 @@
     </div>
     <div class="short-desc">
       {{ eventDetails.short_desc }}
+    </div>
+
+    <div class="card-tags">
+      <div *ngFor="let tag of eventDetails.card_tags" class="tag">
+        {{ tag }}
+      </div>
     </div>
 
     <!-- TODO: add tags block -->
