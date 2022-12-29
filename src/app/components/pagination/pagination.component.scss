@@ -1,0 +1,17 @@
+// ::ng-deep .page-item {
+//   background-color: black;
+// }
+
+::ng-deep .page-link {
+  background-color: #fa7328 !important;
+  color: #fff !important;
+  span {
+    // font-size: 1.4rem;
+    font-weight: bold;
+  }
+}
+
+::ng-deep .page-link.disabled,
+::ng-deep .disabled > .page-link {
+  background-color: #fc9d69 !important;
+}

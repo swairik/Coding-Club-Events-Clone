@@ -1,0 +1,56 @@
+.tags-bar {
+  overflow: hidden;
+  padding-left: 5px;
+  // margin-left: 3px;
+
+  .displayAll {
+    ::ng-deep .mdc-evolution-chip-set__chips {
+      flex-wrap: wrap !important;
+    }
+  }
+  .selected-chips {
+    background-color: #fa7328 !important;
+  }
+
+  .left-margin {
+    margin-left: 5px;
+  }
+
+  ::ng-deep .mdc-evolution-chip-set__chips {
+    flex-wrap: unset !important;
+    width: 100px;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #fa7328;
+      border-radius: 10px;
+    }
+  }
+
+  .arrow {
+    width: 2vmin;
+    height: 2vmin;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-width: 0.8vmin 0.8vmin 0 0;
+      border-style: double;
+      border-color: #000;
+    }
+  }
+
+  .down {
+    transform: rotate(135deg);
+  }
+
+  .up {
+    transform: rotate(-45deg);
+  }
+}

@@ -1,0 +1,5 @@
+export enum RegistrationStatus {
+    REGISTRATIONS_OPEN = 'REGISTRATIONS_OPEN',
+    REGISTRATIONS_CLOSED = 'REGISTRATIONS_CLOSED',
+    PAST = "PAST"
+}

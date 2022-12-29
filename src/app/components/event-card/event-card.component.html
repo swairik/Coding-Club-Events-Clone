@@ -1,0 +1,99 @@
+<mat-card class="h-100">
+  <mat-card-header class="d-block p-0">
+    <div class="cover-image-container">
+      <div class="gradient-bg"></div>
+      <img
+        mat-card-image
+        [src]="eventDetails.mobile_cover_picture"
+        [alt]="eventDetails.name"
+      />
+      <div
+        class="registration-status"
+        *ngIf="eventDetails.event_sub_category === eventSubCategory.UPCOMING"
+      >
+        <p>
+          <!-- TODO: add circle with ripple effect if registration open  -->
+          Registrations
+          <strong>
+            {{
+              eventDetails.registration_status ===
+              registrationStatus.REGISTRATIONS_OPEN
+                ? "open"
+                : "closed"
+            }}
+          </strong>
+          <span
+            *ngIf="
+              eventDetails.registration_status ===
+              registrationStatus.REGISTRATIONS_OPEN
+            "
+          >
+            till
+            <strong>
+              {{
+                getDate(eventDetails.registration_end_time)
+                  | date : "dd MMM, hh:mm aa"
+              }}
+            </strong>
+          </span>
+        </p>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content class="event-detail-wrap">
+    <h4 class="event-name">{{ eventDetails.name }}</h4>
+    <div class="details">
+      <div class="event-info-item">
+        <p class="item-label">Starts on</p>
+        <p class="item-value">
+          {{
+            getDate(eventDetails.event_start_time) | date : "hh:mm aa, dd MMM y"
+          }}
+        </p>
+      </div>
+      <div class="event-info-item price">
+        <p class="item-label">Entry Fee</p>
+        <p class="item-value">
+          {{ getFormattedFees(eventDetails.currency, eventDetails.fees) }}
+        </p>
+      </div>
+      <div class="event-info-item">
+        <p class="item-label">Venue</p>
+        <p class="item-value">{{ eventDetails.venue }}</p>
+      </div>
+    </div>
+    <div class="short-desc">
+      {{ eventDetails.short_desc }}
+    </div>
+
+    <!-- TODO: add tags block -->
+  </mat-card-content>
+  <mat-card-actions class="actions h-100">
+    <div *ngIf="eventDetails.registered_users.show_users_count">
+      <div class="avatar-wrap">
+        <img
+          class="user-avatar"
+          *ngFor="let user of eventDetails.registered_users.top_users"
+          [src]="user.image_url"
+          alt=""
+          [matTooltip]="user.name"
+        />
+      </div>
+      <p class="user-count-text">
+        and
+        <strong>{{ eventDetails.registered_users.other_users_count }}</strong>
+        others are participating
+      </p>
+    </div>
+    <button
+      mat-flat-button
+      *ngIf="
+        eventDetails.registration_status ===
+        registrationStatus.REGISTRATIONS_OPEN
+      "
+      class="register-btn my-2"
+    >
+      Register Now
+    </button>
+  </mat-card-actions>
+</mat-card>

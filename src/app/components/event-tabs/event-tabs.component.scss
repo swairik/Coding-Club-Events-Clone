@@ -1,0 +1,25 @@
+// ::ng-deep .mat-tab-link {
+//   color: red !important;
+//   opacity: 1 !important;
+// }
+
+// !BEGIN NOT WORKING!!!!!
+::ng-deep .mat-tab-link {
+  color: #3182ce;
+  .mat-tab-link-active {
+    color: #000;
+  }
+}
+// !END NOT WORKING
+
+a {
+  img {
+    width: 20px;
+    margin: 0 8px 0 0;
+  }
+}
+
+.selected-tab {
+  background-color: #fef1e9;
+  border-radius: 6px;
+}

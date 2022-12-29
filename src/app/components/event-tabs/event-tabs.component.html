@@ -1,0 +1,50 @@
+<nav mat-tab-nav-bar color="warn" [tabPanel]="eventCategoriesBar">
+  <a
+    mat-tab-link
+    #eventCategoryTab
+    *ngFor="let eventCategory of allEventCategories"
+    (click)="handleEventCategoryChange(eventCategory)"
+    [active]="activeEventCategory == eventCategory"
+    [ngClass]="{ 'selected-tab': eventCategoryTab.active }"
+  >
+    <img
+      src="../../../assets/{{ eventCategory }}-{{
+        activeEventCategory == eventCategory ? 'selected' : 'unselected'
+      }}.{{ getExtension(eventCategory) }}"
+      alt="{{ eventCategory }} icon"
+      class="event-category-image"
+    />
+    {{ eventCategory }}
+  </a>
+</nav>
+
+<nav mat-tab-nav-bar color="warn" [tabPanel]="eventSubCategoriesBar">
+  <a
+    mat-tab-link
+    #eventSubCategoryTab
+    *ngFor="let eventSubCategory of allEventSubCategories"
+    (click)="handleEventSubCategoryChange(eventSubCategory)"
+    [active]="activeEventSubCategory == eventSubCategory"
+    [ngClass]="{ 'selected-tab': eventSubCategoryTab.active }"
+  >
+    {{ eventSubCategory }}
+  </a>
+</nav>
+
+<mat-tab-nav-panel #eventCategoriesBar></mat-tab-nav-panel>
+<mat-tab-nav-panel #eventSubCategoriesBar></mat-tab-nav-panel>
+
+<!-- <mat-tab-group>
+  <mat-tab
+    *ngFor="let eventCategory of allEventCategories"
+    label="{{ eventCategory }}"
+    (click)="handleEventCategoryChange(eventCategory)"
+  >
+    <mat-tab-group>
+      <mat-tab
+        label="{{ eventSubCategory }}"
+        *ngFor="let eventSubCategory of allEventSubCategories"
+      ></mat-tab>
+    </mat-tab-group>
+  </mat-tab>
+</mat-tab-group> -->

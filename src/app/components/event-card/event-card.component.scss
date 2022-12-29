@@ -1,0 +1,120 @@
+.cover-image-container {
+  height: 160px;
+  position: relative;
+
+  .gradient-bg {
+    background-image: linear-gradient(-180deg, rgba(3, 3, 3, 0), #010101);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.2;
+    z-index: 99;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .registration-status {
+    position: absolute;
+    font-size: 12px;
+    color: #121212;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 2px;
+    bottom: 7px;
+    right: 7px;
+    margin-left: 7px;
+    box-shadow: 0 1px 11px 0 rgb(0 0 0 / 11%);
+    z-index: 999;
+  }
+}
+
+.event-detail-wrap {
+  padding: 20px 16px;
+
+  .event-name {
+    font-size: 18px;
+    letter-spacing: 0.2px;
+    font-weight: 700;
+    min-height: 50px;
+    cursor: pointer;
+  }
+
+  .details {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #f3f3f3;
+    padding-bottom: 8px;
+
+    .event-info-item {
+      display: flex;
+      flex-direction: column;
+      margin-right: 16px;
+
+      .item-label {
+        font-size: 13px;
+        color: rgba(28, 28, 28, 0.6);
+        margin: 0;
+      }
+
+      .item-value {
+        color: #212121;
+        font-weight: 600;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .short-desc {
+    margin-top: 12px;
+    height: 57px;
+    font-size: 14px;
+    line-height: 19px;
+    color: #616161;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
+
+.actions {
+  padding: 8px 16px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+
+  .user-avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    margin-right: 2px;
+  }
+
+  .user-count-text {
+    color: #757575;
+    font-size: 13px;
+    margin-top: 4px;
+
+    strong {
+      color: #000;
+    }
+  }
+
+  .register-btn {
+    background: linear-gradient(90deg, #fa7328, #ee9f15);
+    border-radius: 3px;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: inherit;
+    margin-left: auto;
+  }
+}
