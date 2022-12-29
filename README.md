@@ -18,7 +18,7 @@
 
 ### CI/CD pipeline set up on the repository and Deployed using Netlify
 
-Deployed Link : [https://coding-ninjas-events-clone.netlify.app](
+Deployed Link : https://coding-ninjas-events-clone.netlify.app
 
 # CodingNinjasClone
 
