@@ -14,7 +14,7 @@
       alt="{{ eventCategory }} icon"
       class="event-category-image"
     />
-    {{ eventCategory }}
+    {{ eventCategory.split("_").join(" ") | titlecase }}
   </a>
 </nav>
 
